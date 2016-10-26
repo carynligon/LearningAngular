@@ -27,15 +27,10 @@
         </form>
 
         <div ng-repeat="task in tasks">
-      <div class="task-container" ng-click="deleteTask($index)">
-        <p class="task">{{ task.task }}</p>
-        <p class="timestamp">{{ task.timestamp | date }}</p>
-        <div class="rating">
-        	<p class="likes" ng-click="plusOne($index)">{{ product.likes}} </p>
-          <p class="dislikes" ng-click="minusOne($index)">{{ product.dislikes }}</p>
-         </div>
-      </div>
-    </div>
+            <div class="task-container" ng-click="deleteTask($index)">
+              <p class="task">{{ task.task }}</p>
+            </div>
+        </div>
         </div>
 
       </div>
@@ -50,5 +45,8 @@
 
     <!-- Controllers -->
     <script src="js/controllers/MainController.js"></script>
+
+    <!-- Services -->
+    <script src="js/services/tasks.js"></script>
   </body>
 </html>

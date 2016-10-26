@@ -1,13 +1,10 @@
-app.controller('MainController', ['$scope', function($scope) {
+app.controller('MainController', ['$scope', 'tasks', function($scope, tasks) {
   console.log($scope);
+  tasks.success(function(data) {
+    $scope.tasks = data;
+  });
   $scope.title = 'So Many Things To Do Today';
   $scope.subtitle = 'Let\'s get started!';
-  $scope.tasks = [
-  {
-    task: 'get haircut',
-    timestamp: new Date()
-  }
-];
   $scope.plusOne =  function(index) {
     $scope.products[index].likes += 1;
   };
@@ -15,10 +12,8 @@ app.controller('MainController', ['$scope', function($scope) {
     $scope.products[index].dislikes += 1;
   };
   $scope.addTask = function(index) {
-    $scope.tasks = $scope.tasks.concat({
-      task: document.querySelector('.task-input').value,
-      timestamp: new Date()
-    });
+    $http.post('https://tiny-za-server.herokuapp.com/collections/caryns-to-dos')
+      .data({task: document.querySelector('.task-input').value, completed: false});
     document.querySelector('.task-input').value = '';
   };
   $scope.deleteTask = function(index) {
