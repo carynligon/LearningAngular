@@ -19,5 +19,9 @@ app.controller('MainController', ['$scope', function($scope) {
       task: document.querySelector('.task-input').value,
       timestamp: new Date()
     });
+    document.querySelector('.task-input').value = '';
+  };
+  $scope.deleteTask = function(index) {
+    $scope.tasks.splice(index, 1);
   }
 }]);

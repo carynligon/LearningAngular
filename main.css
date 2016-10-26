@@ -32,3 +32,10 @@ input[type="submit"]:hover {
   background: none;
   color: #000;
 }
+
+.task-container {
+  border: 1px solid #000;
+  box-sizing: border-box;
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+}

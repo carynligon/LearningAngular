@@ -21,13 +21,13 @@
         <h2>{{ title }}</h2>
         <h3>{{ subtitle }}</h3>
 
-        <form class="new-task-form" ng-submit="addTask($index)">
+        <form class="new-task-form" ng-submit="addTask()">
           <input type="text" class="task-input" placeholder="new task"/>
           <input type="submit" value="add"/>
         </form>
 
-        <div ng-repeat="task in tasks" class="col-md-6">
-      <div class="thumbnail">
+        <div ng-repeat="task in tasks">
+      <div class="task-container" ng-click="deleteTask($index)">
         <p class="task">{{ task.task }}</p>
         <p class="timestamp">{{ task.timestamp | date }}</p>
         <div class="rating">
