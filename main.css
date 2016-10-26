@@ -1,0 +1,34 @@
+h1,h2,h3 {
+  text-align: center;
+}
+
+h2 {
+  margin-top: 5rem;
+}
+
+form {
+  margin: 7rem auto;
+  text-align: center;
+  width: 500px;
+}
+
+input {
+  padding: 0.25rem;
+}
+
+input:focus {
+  outline: none;
+}
+
+input[type="submit"] {
+  background: #000;
+  border: 1px solid #000;
+  box-sizing: border-box;
+  color: #fff;
+  transition: all 0.3s;
+}
+
+input[type="submit"]:hover {
+  background: none;
+  color: #000;
+}

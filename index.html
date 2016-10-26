@@ -1,16 +1,54 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <title>Angular</title>
-  </head>
-  <body>
-    <div class="main" ng-controller="MainController">
-      <h1>{{ title }}</h1>
-    </div>
+      <title>Angular Practice</title>
+      <link href="https://s3.amazonaws.com/codecademy-content/projects/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:500,300,700,400" rel="stylesheet" type="text/css">
+    <link href="main.css" rel="stylesheet" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+  </head>
+  <body ng-app="myApp">
+    <div class="header">
+      <div class="container">
+        <h1>To Do's</h1>
+      </div>
+    </div>
+
+    <div class="main" ng-controller="MainController">
+      <div class="container">
+
+        <h2>{{ title }}</h2>
+        <h3>{{ subtitle }}</h3>
+
+        <form class="new-task-form" ng-submit="addTask($index)">
+          <input type="text" class="task-input" placeholder="new task"/>
+          <input type="submit" value="add"/>
+        </form>
+
+        <div ng-repeat="task in tasks" class="col-md-6">
+      <div class="thumbnail">
+        <p class="task">{{ task.task }}</p>
+        <p class="timestamp">{{ task.timestamp | date }}</p>
+        <div class="rating">
+        	<p class="likes" ng-click="plusOne($index)">{{ product.likes}} </p>
+          <p class="dislikes" ng-click="minusOne($index)">{{ product.dislikes }}</p>
+         </div>
+      </div>
+    </div>
+        </div>
+
+      </div>
+
+    <div class="footer">
+
+    </div>
+
+
+    <!-- Modules -->
     <script src="js/main.js"></script>
+
+    <!-- Controllers -->
     <script src="js/controllers/MainController.js"></script>
   </body>
 </html>
