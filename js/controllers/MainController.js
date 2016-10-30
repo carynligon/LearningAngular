@@ -3,6 +3,9 @@ app.controller('MainController', ['$scope', 'tasks', function($scope, tasks) {
   tasks.success(function(data) {
     $scope.tasks = data;
   });
+  // newTask.success(function(data) {
+  //   $scope.tasks =
+  // });
   $scope.title = 'So Many Things To Do Today';
   $scope.subtitle = 'Let\'s get started!';
   $scope.plusOne =  function(index) {
