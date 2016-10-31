@@ -1,4 +1,4 @@
-app.controller('MainController', ['$scope', 'tasks', 'newTask', function($scope, tasks, newTask) {
+app.controller('MainController', ['$scope', 'tasks', '$http', function($scope, tasks, $http) {
   console.log($scope);
   tasks.success(function(data) {
     $scope.tasks = data;
@@ -13,9 +13,13 @@ app.controller('MainController', ['$scope', 'tasks', 'newTask', function($scope,
   };
   $scope.addTask = function(index) {
     let data = {task: document.querySelector('.task-input').value, completed: false};
-    newTask.success(function(data) {
-      console.log(data);
-    })
+    $http.post('https://tiny-za-server.herokuapp.com/collections/caryns-to-dos',data)
+              .success(function(data) {
+                return data;
+              })
+              .error(function(err) {
+                return err;
+              });
     document.querySelector('.task-input').value = '';
   };
   $scope.deleteTask = function(index) {
