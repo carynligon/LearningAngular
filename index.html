@@ -27,7 +27,7 @@
         </form>
 
         <div ng-repeat="task in tasks">
-            <div class="task-container" ng-click="deleteTask($index)">
+            <div class="task-container" ng-click="deleteTask(task)">
               <p class="task">{{ task.task }}</p>
             </div>
         </div>

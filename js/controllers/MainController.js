@@ -22,7 +22,10 @@ app.controller('MainController', ['$scope', 'tasks', '$http', function($scope, t
               });
     document.querySelector('.task-input').value = '';
   };
-  $scope.deleteTask = function(index) {
-    $scope.tasks.splice(index, 1);
+  $scope.deleteTask = function(task) {
+    $http.delete('https://tiny-za-server.herokuapp.com/collections/caryns-to-dos/' + task._id)
+        .success(function(resp) {
+          console.log('deleted');
+        })
   }
 }]);
